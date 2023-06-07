@@ -3,7 +3,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
   font-family: Arial, sans-serif;
 }
 
@@ -20,8 +19,11 @@ h1 {
     font-size: 1.2rem;
   }
 
+  .container {
+    justify-content: start;
+  }
+
   .quiz-container {
-    margin: 1.25rem 3.125rem;
     justify-content: flex-start;
   }
 }
@@ -34,7 +36,10 @@ h1 {
 
 .container {
   margin: 0 auto;
-  padding: 0 50px 0;
+  padding: 20px 50px 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
 }
 
 .questins {
