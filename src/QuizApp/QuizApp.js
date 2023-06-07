@@ -1,4 +1,5 @@
 import React, { useState, useCallback, memo } from 'react';
+import BurgerMenu from '../BurgerMenu/BurgerMenu';
 import questionsData from '../data/questions';
 import './QuizApp.css';
 
@@ -13,7 +14,9 @@ const Question = memo(({ question, currentQuestionIndex, selectedAnswer, handleA
           <button
             onClick={() => handleAnswerClick(index)}
             disabled={selectedAnswer !== null}
-            className={selectedAnswer !== null && (index === question.correctAnswer ? 'correct' : 'incorrect')}
+            className={`navigate-button ${
+              selectedAnswer !== null && (index === question.correctAnswer ? 'correct' : 'incorrect')
+            }`}
           >
             {index + 1}. {answer}
           </button>
@@ -51,11 +54,16 @@ function QuizApp() {
     setAnswers(Array(questionsData.questions.length).fill(null));
   }, []);
 
+  const menuItems = [{ text: 'Home' }, { text: 'Обновить', onClick: resetQuiz }];
+
   const currentQuestion = questions[currentQuestionIndex];
   const selectedAnswer = answers[currentQuestionIndex];
 
   return (
     <div className="container">
+      <header>
+        <BurgerMenu items={menuItems} />
+      </header>
       <div className="quiz-container">
         <Question
           question={currentQuestion}
@@ -66,14 +74,13 @@ function QuizApp() {
         {selectedAnswer !== null && <h3>{selectedAnswer === currentQuestion.correctAnswer ? 'Верно!' : 'Неверно!'}</h3>}
         <br />
         <div>
-          <button onClick={goToPrevQuestion} disabled={currentQuestionIndex === 0}>
+          <button className="navigate-button" onClick={goToPrevQuestion} disabled={currentQuestionIndex === 0}>
             Назад
           </button>
-          <button onClick={goToNextQuestion} disabled={currentQuestionIndex === questions.length - 1}>
+          <button className="navigate-button" onClick={goToNextQuestion} disabled={currentQuestionIndex === questions.length - 1}>
             Вперед
           </button>
         </div>
-        <button onClick={resetQuiz}>Обновить</button>
       </div>
     </div>
   );

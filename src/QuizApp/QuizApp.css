@@ -18,9 +18,9 @@
 .container {
   margin: 0 auto;
   padding: 1.25rem 3.125rem 0;
-  min-height: 100vh;
   display: flex;
   justify-content: center;
+  flex-direction: column;
 }
 
 .questins {
@@ -39,7 +39,7 @@ li {
   width: 100%;
 }
 
-li button {
+li .navigate-button {
   width: 100%;
 }
 
@@ -48,23 +48,22 @@ ul {
   padding-inline-start: 0;
 }
 
-button {
+.navigate-button {
   margin: 0.3125rem;
   padding: 0.625rem 1.25rem;
   font-size: 0.9em;
   border: 1px solid;
   text-align: left;
   color: black;
-  cursor: pointer;
   border-radius: 0.3125rem;
   transition: background-color 0.3s ease;
 }
 
-button:hover {
+.navigate-button:hover {
   background-color: #d7d7d7;
 }
 
-button:disabled {
+.navigate-button:disabled {
   background-color: #ccc;
 }
 
@@ -73,14 +72,14 @@ button:disabled {
   color: white;
 }
 
-button:disabled.correct {
+.navigate-button:disabled.correct {
   background-color: var(--primary-color);
   color: white;
 }
 
 .incorrect {
   color: var(--secondary-color);
-} 
+}
 
 @media screen and (max-width: 48rem) {
   .quiz-container h1 {
@@ -100,8 +99,4 @@ button:disabled.correct {
   .quiz-container h1 {
     font-size: var(--font-size-small);
   }
-
-  .container {
-    padding: 1.25rem 0.9375rem 0;
-  }
-}
+} 
