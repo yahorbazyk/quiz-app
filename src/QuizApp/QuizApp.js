@@ -15,7 +15,8 @@ const Question = memo(({ question, currentQuestionIndex, selectedAnswer, handleA
             onClick={() => handleAnswerClick(index)}
             disabled={selectedAnswer !== null}
             className={`navigate-button ${
-              selectedAnswer !== null && (index === question.correctAnswer ? 'correct' : 'incorrect')
+              selectedAnswer !== null &&
+              (index === question.correctAnswer ? 'correct' : index === selectedAnswer ? 'incorrect' : '')
             }`}
           >
             {index + 1}. {answer}
