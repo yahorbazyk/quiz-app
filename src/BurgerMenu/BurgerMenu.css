@@ -67,6 +67,7 @@
 .menu-overlay ul {
   list-style: none;
   padding: 0;
+  text-align: center;
 }
 
 .menu-overlay li {
