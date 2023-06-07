@@ -54,7 +54,29 @@ function QuizApp() {
     setAnswers(Array(questionsData.questions.length).fill(null));
   }, []);
 
-  const menuItems = [{ text: 'Home' }, { text: 'Обновить', onClick: resetQuiz }];
+  const goToQuestion = useCallback(
+    (questionNumber) => {
+      const newIndex = questionNumber - 1;
+
+      if (newIndex >= 0 && newIndex < questions.length) {
+        setCurrentQuestionIndex(newIndex);
+      }
+    },
+    [questions]
+  );
+  const menuItems = [
+    {
+      text: 'Ввести номер вопроса',
+      onClick: () => {
+        const questionNumber = parseInt(prompt('Введите номер вопроса'), 10);
+
+        if (!isNaN(questionNumber)) {
+          goToQuestion(questionNumber);
+        }
+      },
+    },
+    { text: 'Обновить', onClick: resetQuiz },
+  ];
 
   const currentQuestion = questions[currentQuestionIndex];
   const selectedAnswer = answers[currentQuestionIndex];
