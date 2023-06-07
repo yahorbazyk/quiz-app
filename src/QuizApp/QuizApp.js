@@ -57,8 +57,6 @@ function QuizApp() {
         )}
         <br />
         <br />
-        <br />
-        <br />
         <div>
           <button onClick={goToPrevQuestion} disabled={currentQuestionIndex === 0}>
             Назад
