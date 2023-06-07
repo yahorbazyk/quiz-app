@@ -17,10 +17,14 @@
 
 .container {
   margin: 0 auto;
-  padding: 1.25rem 3.125rem 0;
+  padding: 1.25rem 1.875rem 0;
   display: flex;
   justify-content: center;
   flex-direction: column;
+}
+
+header {
+  margin-bottom: 1.25rem;
 }
 
 .questins {
@@ -99,4 +103,4 @@ ul {
   .quiz-container h1 {
     font-size: var(--font-size-small);
   }
-} 
+}
