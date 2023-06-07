@@ -32,6 +32,8 @@ header {
   flex-direction: column;
   align-items: start;
   padding: 0 1.25rem;
+  max-width: 37.5rem;
+  margin: 0 auto;
 }
 
 .quiz-container h1 {
